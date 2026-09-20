@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+            
+        }
+        .one{
+            width: 200px;
+            height: 300px;
+            align-items: center;
+            display: flex;
+            justify-content: center;
+            flex-direction: column;
+            position: absolute;
+            top: 150px;
+            left:490px;
+            border: 2px solid skyblue;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+
+        }
+        h3{
+            text-align: center;
+
+        }
+        input{
+            width:auto;
+            height: 30px;
+            border-radius: 5px;
+            border-color:skyblue;
+            border-width: 1px;
+        }
+        button{
+            width: 100px;
+            height: 30px;
+            border-radius: 5px;
+            border-color:skyblue;
+            border-width: 2px;
+            background-color: skyblue;
+        }
+       button:hover {
+    transform: scale(1.05);
+    background-color:skyblue;
+    color: white;
+}
+
+    </style>
+</head>
+<body>
+    <div class="one">
+        <h3>⚡Electricity Bill Calculator</h3>
+        <br><br>
+    <label>Enter number of units: </label>
+    <input type="number" id="units" placeholder="Enter units">
+    <br><br><br>
+    <button type="button" onclick="bill()">Calculate</button>
+    <div id="output"></div>  
+  </div>
+    <script>
+        function bill(){
+            var un=document.getElementById("units").value;
+            var output=document.getElementById("output");
+            var amount;
+            if (un<=100) {
+               amount=un*2
+            }
+            else if (un>=101 && un<=200){
+               amount=un*3
+            }
+            else if (un>=201 && un<=300){
+                amount=un*4
+            }
+            else{
+                amount=un*7
+            }
+            output.innerHTML =
+                "Your consumed units are: <b>" + un + "</b><br>" +
+                "Your bill is: <b>₹" + amount + "</b>";
+        }
+    </script>
+</body>
+</html>
